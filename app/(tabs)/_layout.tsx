@@ -7,11 +7,14 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import {StatusBar} from "expo-status-bar";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
+      <>
+      <StatusBar hidden={true}/>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -34,12 +37,13 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="Create"
         options={{
-          title: 'Explore',
+          title: 'Create',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
         }}
       />
     </Tabs>
+      </>
   );
 }
